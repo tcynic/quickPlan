@@ -64,7 +64,30 @@ uv add <package-name>
 
 # Add a development dependency
 uv add --dev <package-name>
+
+# Regenerate requirements.txt after adding dependencies
+uv pip compile pyproject.toml -o requirements.txt
 ```
+
+## Deploying to Streamlit Cloud
+
+1. **Push your code to GitHub**
+   ```bash
+   git add .
+   git commit -m "Prepare for deployment"
+   git push origin main
+   ```
+
+2. **Deploy on Streamlit Cloud**
+   - Go to [share.streamlit.io](https://share.streamlit.io)
+   - Sign in with GitHub
+   - Click "New app"
+   - Select your repository, branch (main), and main file path (`planner.py`)
+   - Click "Deploy"
+
+3. **App will be live at**: `https://[your-app-name].streamlit.app`
+
+The `requirements.txt` file is already configured for deployment. If you add new dependencies with `uv`, remember to regenerate `requirements.txt` using the command above.
 
 ## License
 
